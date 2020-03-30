@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:category.properties"/>
+    <context:property-placeholder location="classpath:mini.properties"/>
+    <context:property-placeholder location="classpath:miniDescription.properties"/>
+
+    <bean class="spring.services.ModelCreationLoggingService" id="myLoggingService"></bean>
+
+    <bean class="spring.beans.Mini" id="myMini">
+        <property name="loggingService" ref="myLoggingService"/>
+
+        <property name="miniId" value="1"/>
+        <property name="name" value="Elf Cleric"/>
+        <property name="description" value="Female elf, no features can be seen outside of armor"/>
+    </bean>
+</beans>
